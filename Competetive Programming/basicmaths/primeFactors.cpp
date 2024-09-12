@@ -1,4 +1,4 @@
-#includebits/stdc++.h>
+#include<bits/stdc++.h>
 void printPrimeFactors(int n) {
     while (n % 2 == 0) {
         std::cout << 2 << " ";
