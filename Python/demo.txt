@@ -1,0 +1,7 @@
+Hello ! 
+I am learning python 
+I am making this demo file to learn file i/o in python
+
+
+
+############################  THATS ALL !!!!!  ##############################
