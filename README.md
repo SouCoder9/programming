@@ -1,4 +1,4 @@
-# PROGRAMMING Repository
+# PROGRAMMING REPOSITORY
 
 Welcome to my  repository!
 
