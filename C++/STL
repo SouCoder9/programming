@@ -1,0 +1,23 @@
+c++ stl consists four main things;- containers, functors , iterators and algorithms
+containers are mainly - sequebntial  unordered and ordered
+-vectors
+-maps
+-pairs 
+-set 
+-multimaps
+-stack
+-Queue
+-priorityQueue
+
+itarators:-
+itarators are the indexes that points to the memory locations of the element pesent in the container 
+
+algorithms:-
+pre defined library methods that helps to perform the task in very sort lines of code instsead of writing the full algorithm step by step
+
+-sort();
+-upperbound()
+-lowerBound()
+-begin()
+-end()
+etc                 we will know more details later by implementing in code 
