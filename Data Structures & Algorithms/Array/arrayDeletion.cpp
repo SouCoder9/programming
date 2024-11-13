@@ -1,92 +1,94 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 // Function to delete the last element
-void deleteLast(int arr[], int *size) {
-    if (*size <= 0) {
-        printf("Array is empty.\n");
+void deleteLast(int arr[], int &size) {
+    if (size <= 0) {
+        cout << "Array is empty." << endl;
         return;
     }
-    (*size)--; // Reducing the size by 1 deletes the last element
-    printf("Last element deleted.\n");
+    --size; // Reducing the size by 1 deletes the last element
+    cout << "Last element deleted." << endl;
 }
 
 // Function to delete the first element
-void deleteFirst(int arr[], int *size) {
-    if (*size <= 0) {
-        printf("Array is empty.\n");
+void deleteFirst(int arr[], int &size) {
+    if (size <= 0) {
+        cout << "Array is empty." << endl;
         return;
     }
-    for (int i = 0; i < *size - 1; i++) {
+    for (int i = 0; i < size - 1; i++) {
         arr[i] = arr[i + 1]; // Shift elements to the left
     }
-    (*size)--; // Reducing the size by 1
-    printf("First element deleted.\n");
+    --size; // Reducing the size by 1
+    cout << "First element deleted." << endl;
 }
 
 // Function to delete an element from a given position
-void deleteAtPosition(int arr[], int *size, int pos) {
-    if (*size <= 0) {
-        printf("Array is empty.\n");
+void deleteAtPosition(int arr[], int &size, int pos) {
+    if (size <= 0) {
+        cout << "Array is empty." << endl;
         return;
     }
-    if (pos < 0 || pos >= *size) {
-        printf("Invalid position!\n");
+    if (pos < 0 || pos >= size) {
+        cout << "Invalid position!" << endl;
         return;
     }
-    for (int i = pos; i < *size - 1; i++) {
+    for (int i = pos; i < size - 1; i++) {
         arr[i] = arr[i + 1]; // Shift elements to the left from the given position
     }
-    (*size)--; // Reducing the size by 1
-    printf("Element at position %d deleted.\n", pos);
+    --size; // Reducing the size by 1
+    cout << "Element at position " << pos << " deleted." << endl;
 }
 
 // Function to display the array
 void displayArray(int arr[], int size) {
     if (size == 0) {
-        printf("Array is empty.\n");
+        cout << "Array is empty." << endl;
         return;
     }
-    printf("Array elements: ");
+    cout << "Array elements: ";
     for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
+        cout << arr[i] << ' ';
     }
-    printf("\n");
+    cout << endl;
 }
 
 int main() {
     int arr[100], size, choice, pos;
 
     // Input the size of the array
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
+    cout << "Enter the size of the array: ";
+    cin >> size;
 
     // Input the elements of the array
-    printf("Enter %d elements of the array: ", size);
+    cout << "Enter " << size << " elements of the array: ";
     for (int i = 0; i < size; i++) {
-        scanf("%d", &arr[i]);
+        cin >> arr[i];
     }
 
     while (1) {
-        printf("\nMenu:\n");
-        printf("1. Delete Last Element\n");
-        printf("2. Delete First Element\n");
-        printf("3. Delete Element at a Given Position\n");
-        printf("4. Display Array\n");
-        printf("5. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+        cout << endl;
+        cout << "Menu:" << endl;
+        cout << "1. Delete Last Element" << endl;
+        cout << "2. Delete First Element" << endl;
+        cout << "3. Delete Element at a Given Position" << endl;
+        cout << "4. Display Array" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
 
         switch (choice) {
             case 1:
-                deleteLast(arr, &size);
+                deleteLast(arr, size);
                 break;
             case 2:
-                deleteFirst(arr, &size);
+                deleteFirst(arr, size);
                 break;
             case 3:
-                printf("Enter the position to delete (0-based index): ");
-                scanf("%d", &pos);
-                deleteAtPosition(arr, &size, pos);
+                cout << "Enter the position to delete (0-based index): ";
+                cin >> pos;
+                deleteAtPosition(arr, size, pos);
                 break;
             case 4:
                 displayArray(arr, size);
@@ -94,7 +96,8 @@ int main() {
             case 5:
                 return 0;
             default:
-                printf("Invalid choice! Please try again.\n");
+                cout << "Invalid choice! Please try again." << endl;
         }
     }
 }
+
