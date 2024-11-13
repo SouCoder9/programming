@@ -1,5 +1,16 @@
+/**
+ * Searches for a given target value in a sorted array of integers.
+ *
+ * Args:
+ *     nums: the sorted array of integers.
+ *     target: the target value to search for.
+ *     low: the lowest index of the array to search in.
+ *     high: the highest index of the array to search in.
+ *
+ * Returns:
+ *     The index at which the target was found, or -1 if the target was not found.
+ */
 #include <iostream>
-
 int binarySearch(int nums[], int target, int low, int high) {
     if (high < low) {
         return -1;
