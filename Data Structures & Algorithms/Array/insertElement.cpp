@@ -1,38 +1,101 @@
 #include <iostream>
 using namespace std;
 
-// Inserts a key in arr[] of given capacity.
-// n is the current size of arr[]. This
-// function returns n + 1 if insertion
-// is successful, else n.
-int insertSorted(int arr[], int n, int key, int capacity)
+void insertAtLast(int arr[], int &size)
 {
-    // Cannot insert more elements if n is
-    // already more than or equal to capacity
-    if (n >= capacity)
-        return n;
+    int ele;
+    cout << "Enter the element to be inserted at the last: ";
+    cin >> ele;
+    arr[size] = ele;
+    size++;
+}
 
-    arr[n] = key;
-    return (n + 1);
+void displayArray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void insertAtFirst(int arr[], int &size)
+{
+    int ele;
+    cout << "Enter the element to be inserted at the first: ";
+    cin >> ele;
+    for (int i = size - 1; i >= 0; i--)
+    {
+        arr[i + 1] = arr[i];
+    }
+    arr[0] = ele;
+    size++;
+}
+
+void insertAtAnyPos(int arr[], int &size)
+{
+    int ele, pos;
+    cout << "Enter the element to be inserted: ";
+    cin >> ele;
+    cout << "Enter the position (0-based index): ";
+    cin >> pos;
+
+    // Check if the position is valid
+    if (pos < 0 || pos > size)
+    {
+        cout << "Invalid position!" << endl;
+        return;
+    }
+
+    for (int i = size - 1; i >= pos; i--)
+    {
+        arr[i + 1] = arr[i];
+    }
+    arr[pos] = ele;
+    size++;
 }
 
 int main()
 {
-    int arr[20] = { 12, 16, 20, 40, 50, 70 };
-    int capacity = sizeof(arr) / sizeof(arr[0]);
-    int n = 6;
-    int i, key = 26;
+    int size, choice;
+    cout << "Enter initial size of the array: ";
+    cin >> size;
 
-    cout << "Before Insertion: ";
-    for (i = 0; i < n; i++)
-        cout << arr[i] << " ";
+    // Allocate memory dynamically using new
+    int *arr = new int[size]; // Add extra space to handle insertions
 
-    // Inserting key
-    n = insertSorted(arr, n, key, capacity);
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < size; i++)
+    {
+        cin >> arr[i];
+    }
 
-    cout << "\nAfter Insertion: ";
-    for (i = 0; i < n; i++)
-        cout << arr[i] << " ";
+    while (1)
+    {
+        cout << "MENU:\n1. Display\n2. Insert at last\n3. Insert at first\n4. Insert at any position\n5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    return 0;
+        switch (choice)
+        {
+        case 1:
+            displayArray(arr, size);
+            break;
+        case 2:
+            insertAtLast(arr, size);
+            break;
+        case 3:
+            insertAtFirst(arr, size);
+            break;
+        case 4:
+            insertAtAnyPos(arr, size);
+            break;
+        case 5:
+            delete[] arr; // Free allocated memory
+            exit(0);
+        default:
+            cout << "Invalid Choice" << endl;
+            break;
+        }
+    }
 }
