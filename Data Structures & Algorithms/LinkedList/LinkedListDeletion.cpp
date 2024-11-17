@@ -144,7 +144,6 @@ int main() {
     int choice, position;
 
     while (1) {
-        printf("\nMenu:\n");
         printf("1. Create List\n");
         printf("2. Display List\n");
         printf("3. Delete from First\n");
