@@ -9,14 +9,12 @@ int maxScore(const string& s) {
     int maxScore = 0;
     int zerosLeft = 0, onesRight = 0;
 
-    // Count total number of ones in the string
     for (char c : s) {
         if (c == '1') {
             ++onesRight;
         }
     }
-
-    // Iterate through the string and calculate score for each split
+    
     for (int i = 0; i < n - 1; ++i) {
         if (s[i] == '0') {
             ++zerosLeft;
