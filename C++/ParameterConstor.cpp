@@ -9,12 +9,12 @@ public:
     int Servings;
     vector<string> Ingridients;
 
-    Coffee()
+    Coffee(string name,int qty,vector<string>ing)//default constructor with parameters....
     {
         cout << "constructor called" << endl;
-        Type = "coldCoffee";
-        Servings = 10;
-        Ingridients = {"water", "coffee-powder", "suger", "ice", "milk-powder"};
+        Type = name;
+        Servings = qty;
+        Ingridients = ing;
     }
 
     void Display()
@@ -31,7 +31,7 @@ public:
 int main()
 {
 
-    Coffee defaultCoffee;
+    Coffee defaultCoffee({"coldcoffee",10,{"water,", "coffee-powder,", "suger,", "ice,", "milk-powder."}});//passing args to the parameters
     defaultCoffee.Display();
 
     return 0;
