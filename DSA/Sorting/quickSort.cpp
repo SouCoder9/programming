@@ -14,6 +14,7 @@ int partition(int arr[], int low, int high)
             swap(arr[i], arr[j]);
         }
     }
+
     swap(arr[i + 1], arr[high]);
     return i + 1;
 }
@@ -34,11 +35,12 @@ int main()
     cout << "Enter the size of the array : ";
     cin >> n;
     int array[n];
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++)
+    {
         cout << "Enter the element at index " << i << " : ";
         cin >> array[i];
     }
-    quickSort(array, 0, n-1);
+    quickSort(array, 0, n - 1);
     for (int i = 0; i < n; i++)
     {
         cout << array[i] << " ";
